@@ -1,5 +1,6 @@
 package com.tecsup.app.menus;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -21,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         CardView cardview = (CardView)findViewById(R.id.cardview);
+        CardView cardview2 = (CardView)findViewById(R.id.cardview2);
         registerForContextMenu(cardview);
-//        registerForContextMenu(cardview);
+ registerForContextMenu(cardview2);
 //        registerForContextMenu(listview);
 
         cardview.setOnLongClickListener(new View.OnLongClickListener() {
@@ -96,10 +98,14 @@ public class MainActivity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menu_favority:
-                        Toast.makeText(MainActivity.this, "La nota ha sido guardada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "MultiChoiceActivity", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(MainActivity.this, MultiChoiceActivity.class);
+                        startActivity(i);
                         return true;
                     case R.id.menu_share:
-                        Toast.makeText(MainActivity.this, "La nota ha sido compartida", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "MainActivity2", Toast.LENGTH_SHORT).show();
+                        Intent i2 = new Intent(MainActivity.this, MainActivity2.class);
+                        startActivity(i2);
                         return true;
                     default:
                         return false;
@@ -121,10 +127,14 @@ public class MainActivity extends AppCompatActivity {
 //        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.menu_favority:
-                Toast.makeText(MainActivity.this, "La nota ha sido guardada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "HomeActivity", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, HomeActivity.class);
+                startActivity(i);
                 return true;
             case R.id.menu_share:
-                Toast.makeText(MainActivity.this, "La nota ha sido compartida", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "DashboardActivity", Toast.LENGTH_SHORT).show();
+                Intent i2 = new Intent(this, DashboardActivity.class);
+                startActivity(i2);
                 return true;
             default:
                 return super.onContextItemSelected(item);
